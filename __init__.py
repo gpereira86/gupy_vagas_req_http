@@ -31,19 +31,19 @@ setParams = {
         "state": "Rio de Janeiro"
     },
     "estagiarioRemoto": {
-        "jobName": "estagio",
+        "jobName": "estagiario",
         "workplaceType": "remote"
     },
     "estagiarioRJ":{
-        "jobName": "estagio",
+        "jobName": "estagiario",
         "state": "Rio de Janeiro"
     },
     "estagiariaRemoto": {
-        "jobName": "estagio",
+        "jobName": "estagiaria",
         "workplaceType": "remote"
     },
     "estagiariaRJ": {
-        "jobName": "estagio",
+        "jobName": "estagiaria",
         "state": "Rio de Janeiro"
     },
     "phpRemoto": {
@@ -59,7 +59,7 @@ setParams = {
 all_vacancies = []
 
 for key, params in setParams.items():
-    print(f"Gerando daos de {key} => {params}")
+    print(f"Gerando dados de {key} => {params}")
     vacancies = vagas.fetch_vacancies(params)
     all_vacancies.extend(vacancies)
 

@@ -23,9 +23,13 @@ def formatar_palavras_chave(file_path, palavras_chave):
         if nome_vaga:
             for palavra in palavras_chave:
                 if palavra.lower() in nome_vaga.lower():
-                    cell = ws.cell(row=row, column=5)
-                    cell.fill = fundo_vermelho
-                    cell.font = letra_branca_negrito
+                    # cell = ws.cell(row=row, column=5)
+                    # cell.fill = fundo_vermelho
+                    # cell.font = letra_branca_negrito
+                    for col in range(1, 15):  # Colunas de A (1) até N (14)
+                        cell = ws.cell(row=row, column=col)
+                        cell.fill = fundo_vermelho
+                        cell.font = letra_branca_negrito
                     break
 
     ws.column_dimensions['B'].hidden = True
