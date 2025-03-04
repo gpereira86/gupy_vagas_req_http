@@ -1,26 +1,24 @@
 import requests
 import math
 
-headers = {"accept": "application/json"}
-base_url = "https://portal.api.gupy.io/api/v1/jobs"
-params = {
-    "jobName": "estagio",
-    "workplaceType": "remote"
-}
 
-response = requests.get(base_url, params=params, headers=headers)
+def fetch_vacancies(params):
+    headers = {"accept": "application/json"}
+    base_url = "https://portal.api.gupy.io/api/v1/jobs"
 
-dados = response.json()
-pagination = dados['pagination']
-vacancies = dados['data']
+    response = requests.get(base_url, params=params, headers=headers)
 
-if pagination and pagination['total'] > 10:
+    dados = response.json()
+    pagination = dados['pagination']
+    vacancies = dados['data']
 
-    qtdyCycle = pagination['total']/10
-    qtdyCycle = math.ceil(qtdyCycle)
+    if pagination and pagination['total'] > 10:
+        qtdyCycle = pagination['total'] / 10
+        qtdyCycle = math.ceil(qtdyCycle)
 
-    for page in range(1, qtdyCycle+1):
-        params['offset'] = page * 10
-        response = requests.get(base_url, params=params, headers=headers)
-        vacancies.extend(response.json()['data'])
+        for page in range(1, qtdyCycle + 1):
+            params['offset'] = page * 10
+            response = requests.get(base_url, params=params, headers=headers)
+            vacancies.extend(response.json()['data'])
 
+    return vacancies
