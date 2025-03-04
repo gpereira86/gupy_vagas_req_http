@@ -13,7 +13,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
             "Id": vaga["id"],
             "Id Empresa": vaga["companyId"],
             "Nome Empresa": vaga["careerPageName"],
-            "URL Empresa": f'=HYPERLINK("{vaga["careerPageUrl"]}", "Link página Empresa")' if vaga["careerPageUrl"] else None,
+            "URL Empresa": "Not",
             "Nome da Vaga": vaga["name"],
             "Tipo": vaga["type"].replace("vacancy_type_", "") if vaga["type"] else None,
             "Publicado": pd.to_datetime(vaga["publishedDate"], errors='coerce').strftime('%d/%m/%Y') if vaga["publishedDate"] else None,
@@ -22,7 +22,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
             "Cidade": vaga["city"],
             "Estado": vaga["state"],
             "Regime": vaga["workplaceType"],
-            "URL Vaga": f'=HYPERLINK("{vaga["jobUrl"]}", "Link da vaga")' if vaga["jobUrl"] else None
+            "URL Vaga": f'=HYPERLINK("{vaga["jobUrl"]}", "{vaga["jobUrl"]}")' if vaga["jobUrl"] else None
         })
 
     vaga_df = pd.DataFrame(vaga_data)

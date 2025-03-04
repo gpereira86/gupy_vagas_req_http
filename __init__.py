@@ -21,15 +21,50 @@ if verificar_planilha_aberta(file_path):
     print("A planilha está aberta. Por favor, feche-a e tente novamente.")
     exit()
 
-params = {
-    "jobName": "estagio",
-    "workplaceType": "remote"
+setParams = {
+    "estagioRemoto": {
+        "jobName": "estagio",
+        "workplaceType": "remote"
+    },
+    "estagioRJ":{
+        "jobName": "estagio",
+        "state": "Rio de Janeiro"
+    },
+    "estagiarioRemoto": {
+        "jobName": "estagio",
+        "workplaceType": "remote"
+    },
+    "estagiarioRJ":{
+        "jobName": "estagio",
+        "state": "Rio de Janeiro"
+    },
+    "estagiariaRemoto": {
+        "jobName": "estagio",
+        "workplaceType": "remote"
+    },
+    "estagiariaRJ": {
+        "jobName": "estagio",
+        "state": "Rio de Janeiro"
+    },
+    "phpRemoto": {
+        "jobName": "PHP",
+        "workplaceType": "remote"
+    },
+    "phpRJ":{
+        "jobName": "PHP",
+        "state": "Rio de Janeiro"
+    },
 }
 
-vacancies = vagas.fetch_vacancies(params)
+all_vacancies = []
 
-plan.update_vacancies_excel(vacancies)
+for key, params in setParams.items():
+    print(f"Gerando daos de {key} => {params}")
+    vacancies = vagas.fetch_vacancies(params)
+    all_vacancies.extend(vacancies)
 
-palavras_chave = ['php', 'desenvolvimento', 'desenvolvedor']
+plan.update_vacancies_excel(all_vacancies)
+
+palavras_chave = ['php', 'desenvolvimento', 'desenvolvedor', 'junior', 'jr']
 
 kw.formatar_palavras_chave(file_path, palavras_chave)
