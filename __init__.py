@@ -16,7 +16,7 @@ def verificar_planilha_aberta(file_path):
 
 
 if __name__ == "__main__":
-    file_path = "vagas.xlsx"
+    file_path = os.path.join(os.path.dirname(__file__), "vagas.xlsx")
 
     if verificar_planilha_aberta(file_path):
         print("A planilha está aberta. Por favor, feche-a e tente novamente.")

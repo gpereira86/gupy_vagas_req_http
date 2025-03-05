@@ -1,7 +1,11 @@
 import pandas as pd
 import os
 
+
 def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
+    file_path = os.path.join(os.path.dirname(__file__), "vagas.xlsx")
+    print(file_path)
+
     if os.path.exists(file_path):
         existing_df = pd.read_excel(file_path, engine="openpyxl")
     else:
@@ -46,7 +50,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
 
     final_df.to_excel(file_path, index=False, engine="openpyxl")
 
-    print("Planilha criada/atualizada com sucesso!")
+    print(f"Planilha criada/atualizada com sucesso em {file_path}!")
 
 
 
