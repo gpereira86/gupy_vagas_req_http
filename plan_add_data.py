@@ -50,7 +50,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
 
     final_df.to_excel(file_path, index=False, engine="openpyxl")
 
-    print(f"Planilha criada/atualizada com sucesso em {file_path}!")
+    print(f"Planilha criada/atualizada com sucesso!")
 
 
 
