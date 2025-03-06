@@ -75,6 +75,8 @@ if __name__ == "__main__":
 
     plan.update_vacancies_excel(all_vacancies)
 
+    palavras_chave_amarelo = ['Customer Success']
     palavras_chave = ['php', 'desenvolvimento', 'desenvolvedor', 'junior', 'júnior', 'jr']
 
+    kw.formatar_palavras_chave(file_path, palavras_chave_amarelo, True)
     kw.formatar_palavras_chave(file_path, palavras_chave)

@@ -1,14 +1,16 @@
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font
 
-def formatar_palavras_chave(file_path, palavras_chave):
+def formatar_palavras_chave(file_path, palavras_chave, amarelo=False):
     wb = load_workbook(file_path)
     ws = wb.active
 
     fundo_vermelho = PatternFill(start_color="FF0000", end_color="FF0000", fill_type="solid")
+    fundo_amarelo = PatternFill(start_color="FFC000", end_color="FFC000", fill_type="solid")
     fundo_preto = PatternFill(start_color="000000", end_color="000000", fill_type="solid")
 
     letra_branca_negrito = Font(color="FFFFFF", bold=True)
+    letra_preta_negrito = Font(color="000000", bold=True)
 
     ws.freeze_panes = 'A2'
     ws.auto_filter.ref = ws.dimensions
@@ -23,13 +25,15 @@ def formatar_palavras_chave(file_path, palavras_chave):
         if nome_vaga:
             for palavra in palavras_chave:
                 if palavra.lower() in nome_vaga.lower():
-                    # cell = ws.cell(row=row, column=5)
-                    # cell.fill = fundo_vermelho
-                    # cell.font = letra_branca_negrito
+
                     for col in range(1, 15):  # Colunas de A (1) até N (14)
                         cell = ws.cell(row=row, column=col)
-                        cell.fill = fundo_vermelho
-                        cell.font = letra_branca_negrito
+                        if amarelo:
+                            cell.fill = fundo_amarelo
+                            letra_preta_negrito
+                        else:
+                            cell.fill = fundo_vermelho
+                            cell.font = letra_branca_negrito
                     break
 
     ws.column_dimensions['B'].hidden = True
