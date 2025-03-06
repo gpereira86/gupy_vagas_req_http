@@ -55,6 +55,15 @@ if __name__ == "__main__":
             "jobName": "PHP",
             "state": "Rio de Janeiro"
         },
+        "customerSuccessRemoto": {
+            "jobName": "Customer Success",
+            "workplaceType": "remote"
+        },
+        "customerSuccessRJ":{
+            "jobName": "Customer Success",
+            "state": "Rio de Janeiro"
+        },
+
     }
 
     all_vacancies = []
