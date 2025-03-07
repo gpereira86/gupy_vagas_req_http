@@ -63,6 +63,14 @@ if __name__ == "__main__":
             "jobName": "Customer Success",
             "state": "Rio de Janeiro"
         },
+        "sucessoDoClienteRemoto": {
+            "jobName": "Sucesso Do Cliente",
+            "workplaceType": "remote"
+        },
+        "sucessoDoClienteRemotoRJ":{
+            "jobName": "Sucesso Do Cliente",
+            "state": "Rio de Janeiro"
+        },
 
     }
 
