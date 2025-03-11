@@ -25,7 +25,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
             "Remoto?": vaga["isRemoteWork"],
             "Cidade": vaga["city"],
             "Estado": vaga["state"],
-            "Regime": vaga["workplaceType"],
+            "Regime": vaga.get("workplaceType", "Não informado"),
             "URL Vaga": f'=HYPERLINK("{vaga["jobUrl"]}", "{vaga["jobUrl"]}")' if vaga["jobUrl"] else None
         })
 

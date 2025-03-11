@@ -6,6 +6,8 @@ import os
 
 def verificar_planilha_aberta(file_path):
     if not os.path.exists(file_path):
+        with open(file_path, 'w') as f:
+            pass
         return False
 
     try:
@@ -63,12 +65,12 @@ if __name__ == "__main__":
             "jobName": "Customer Success",
             "state": "Rio de Janeiro"
         },
-        "sucessoDoClienteRemoto": {
-            "jobName": "Sucesso Do Cliente",
+        "analistaDeDadosRemoto": {
+            "jobName": "Analista de dados",
             "workplaceType": "remote"
         },
-        "sucessoDoClienteRemotoRJ":{
-            "jobName": "Sucesso Do Cliente",
+        "analistaDeDadosRJ":{
+            "jobName": "Analista de dados",
             "state": "Rio de Janeiro"
         },
 
