@@ -20,7 +20,7 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
             "URL Empresa": "Not",
             "Nome da Vaga": vaga["name"],
             "Tipo": vaga["type"].replace("vacancy_type_", "") if vaga["type"] else None,
-            "Publicado": pd.to_datetime(vaga["publishedDate"], errors='coerce').strftime('%d/%m/%Y') if vaga["publishedDate"] else None,
+            "Publicado": pd.to_datetime(vaga["publishedDate"], errors='coerce'),
             "Dead Line": pd.to_datetime(vaga["applicationDeadline"], errors='coerce').strftime('%d/%m/%Y') if vaga["applicationDeadline"] else None,
             "Remoto?": vaga["isRemoteWork"],
             "Cidade": vaga["city"],
@@ -43,14 +43,15 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
 
     final_df = pd.concat([existing_df, new_vagas], ignore_index=True)
 
-    final_df["Publicado"] = pd.to_datetime(final_df["Publicado"], format='%d/%m/%Y', errors='coerce')
-    final_df = final_df.sort_values(by="Publicado", ascending=False)
+    # Remover duplicatas mantendo a última ocorrência
+    final_df = final_df.drop_duplicates(subset=["Id"], keep="last")
 
+    # Ordenar primeiro pela data de publicação e depois pelo campo "Nova Adição"
+    final_df = final_df.sort_values(by=["Publicado", "Nova Adição"], ascending=[False, True])
+
+    # Converter a data de volta para string formatada antes de salvar
     final_df["Publicado"] = final_df["Publicado"].dt.strftime('%d/%m/%Y')
 
     final_df.to_excel(file_path, index=False, engine="openpyxl")
 
     print(f"Planilha criada/atualizada com sucesso!")
-
-
-
