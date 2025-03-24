@@ -73,7 +73,14 @@ if __name__ == "__main__":
             "jobName": "Analista de dados",
             "state": "Rio de Janeiro"
         },
-
+        "analistaDeInfGerenc": {
+            "jobName": "Analista de Informações",
+            "workplaceType": "remote"
+        },
+        "analistaDeInfGerencRJ":{
+            "jobName": "Analista de Informações",
+            "state": "Rio de Janeiro"
+        }
     }
 
     all_vacancies = []
@@ -85,7 +92,7 @@ if __name__ == "__main__":
 
     plan.update_vacancies_excel(all_vacancies)
 
-    palavras_chave_amarelo = ['Customer Success', 'Analista de dados']
+    palavras_chave_amarelo = ['Customer Success', 'Analista de dados', 'Analista de Informações Gerenciais']
     palavras_chave = ['php', 'desenvolvimento', 'desenvolvedor', 'junior', 'júnior', 'jr']
 
     kw.formatar_palavras_chave(file_path, palavras_chave_amarelo, True)
