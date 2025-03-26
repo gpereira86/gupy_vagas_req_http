@@ -80,6 +80,14 @@ if __name__ == "__main__":
         "analistaDeInfGerencRJ":{
             "jobName": "Analista de Informações",
             "state": "Rio de Janeiro"
+        },
+        "analistaAdm": {
+            "jobName": "Analista de Informações",
+            "workplaceType": "remote"
+        },
+        "analistaAdmRJ":{
+            "jobName": "Analista de Informações",
+            "state": "Rio de Janeiro"
         }
     }
 
