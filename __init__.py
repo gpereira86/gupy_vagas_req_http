@@ -82,11 +82,11 @@ if __name__ == "__main__":
             "state": "Rio de Janeiro"
         },
         "analistaAdm": {
-            "jobName": "Analista de Informações",
+            "jobName": "Analista de Administrativo",
             "workplaceType": "remote"
         },
         "analistaAdmRJ":{
-            "jobName": "Analista de Informações",
+            "jobName": "Analista de Administrativo",
             "state": "Rio de Janeiro"
         }
     }
