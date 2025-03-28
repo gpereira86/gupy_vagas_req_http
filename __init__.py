@@ -57,6 +57,22 @@ if __name__ == "__main__":
             "jobName": "PHP",
             "state": "Rio de Janeiro"
         },
+        "backEndRemoto": {
+            "jobName": "BackEnd",
+            "workplaceType": "remote"
+        },
+        "backEndRJ": {
+            "jobName": "BackEnd",
+            "state": "Rio de Janeiro"
+        },
+        "backEnd2Remoto": {
+            "jobName": "Back-End",
+            "workplaceType": "remote"
+        },
+        "backEnd2RJ": {
+            "jobName": "Back-End",
+            "state": "Rio de Janeiro"
+        },
         "customerSuccessRemoto": {
             "jobName": "Customer Success",
             "workplaceType": "remote"
