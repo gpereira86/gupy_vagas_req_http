@@ -104,6 +104,14 @@ if __name__ == "__main__":
         "analistaAdmRJ":{
             "jobName": "Analista de Administrativo",
             "state": "Rio de Janeiro"
+        },
+        "programa": {
+            "jobName": "Programa",
+            "workplaceType": "remote"
+        },
+        "programaRJ":{
+            "jobName": "Programa",
+            "state": "Rio de Janeiro"
         }
     }
 
