@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+from datetime import datetime
 
 
 def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
@@ -53,4 +54,14 @@ def update_vacancies_excel(vacancies, file_path="vagas.xlsx"):
 
     final_df.to_excel(file_path, index=False, engine="openpyxl")
 
+    historico_path = os.path.join(os.path.dirname(__file__), "HISTORICO")
+    os.makedirs(historico_path, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_filename = f"GUPYVAGAS_{timestamp}.csv"
+    csv_path = os.path.join(historico_path, csv_filename)
+
+    final_df.to_csv(csv_path, index=False, encoding="utf-8-sig")
+
     print(f"Planilha criada/atualizada com sucesso!")
+
