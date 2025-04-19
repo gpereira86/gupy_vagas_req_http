@@ -1,3 +1,2 @@
-.gitignore
 vagas.xlsx
-_pycache_
+__pycache__/
